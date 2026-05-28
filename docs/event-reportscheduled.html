@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -301,15 +297,15 @@
 can persist the information and begin their respective workflows.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nReportScheduled_7DED9C74["Event: Report Scheduled"]
-  nTenantService_37499504["Service: TenantService"] -->|produces| nReportScheduled_7DED9C74
-  nReportScheduled_7DED9C74 -->|consumed by| nReportService_583D726D["Service: ReportService"]
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nReportScheduled_7DED9C74
-    nReportService_583D726D
+nReportScheduled_384482CF["Event: Report Scheduled"]
+  nTenantService_71CB5BEF["Service: TenantService"] -->|produces| nReportScheduled_384482CF
+  nReportScheduled_384482CF -->|consumed by| nReportService_4649200A["Service: ReportService"]
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nReportScheduled_384482CF
+    nReportService_4649200A
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nTenantService_37499504
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nTenantService_71CB5BEF
   end
 </pre></div>
 
@@ -319,15 +315,15 @@ nReportScheduled_7DED9C74["Event: Report Scheduled"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nReportScheduled_7DED9C74["Event: Report Scheduled"]
-  nTenantService_37499504["Service: TenantService"] -->|produces| nReportScheduled_7DED9C74
-  nReportScheduled_7DED9C74 -->|consumed by| nReportService_583D726D["Service: ReportService"]
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nReportScheduled_7DED9C74
-    nReportService_583D726D
+nReportScheduled_384482CF["Event: Report Scheduled"]
+  nTenantService_71CB5BEF["Service: TenantService"] -->|produces| nReportScheduled_384482CF
+  nReportScheduled_384482CF -->|consumed by| nReportService_4649200A["Service: ReportService"]
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nReportScheduled_384482CF
+    nReportService_4649200A
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nTenantService_37499504
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nTenantService_71CB5BEF
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

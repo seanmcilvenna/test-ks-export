@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -300,15 +296,15 @@
 <p>Used to update admission or discharge status and to trigger additional processing for each patient.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nPatientListsAcquired_40B7BF05["Event: Patient Lists Acquired"]
-  nDataAcquisitionWorkerService_6A343342["Service: DataAcquisitionWorkerService"] -->|produces| nPatientListsAcquired_40B7BF05
-  nPatientListsAcquired_40B7BF05 -->|consumed by| nCensusService_2CC76C86["Service: CensusService"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionWorkerService_6A343342
-    nPatientListsAcquired_40B7BF05
+nPatientListsAcquired_7817175F["Event: Patient Lists Acquired"]
+  nDataAcquisitionWorkerService_3F420F60["Service: DataAcquisitionWorkerService"] -->|produces| nPatientListsAcquired_7817175F
+  nPatientListsAcquired_7817175F -->|consumed by| nCensusService_7D0BBF5C["Service: CensusService"]
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionWorkerService_3F420F60
+    nPatientListsAcquired_7817175F
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
   end
 </pre></div>
 <h2 id="event-schema">Event Schema <a id="event-schema" href="#event-schema" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Event Schema"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -338,15 +334,15 @@ nPatientListsAcquired_40B7BF05["Event: Patient Lists Acquired"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nPatientListsAcquired_40B7BF05["Event: Patient Lists Acquired"]
-  nDataAcquisitionWorkerService_6A343342["Service: DataAcquisitionWorkerService"] -->|produces| nPatientListsAcquired_40B7BF05
-  nPatientListsAcquired_40B7BF05 -->|consumed by| nCensusService_2CC76C86["Service: CensusService"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionWorkerService_6A343342
-    nPatientListsAcquired_40B7BF05
+nPatientListsAcquired_7817175F["Event: Patient Lists Acquired"]
+  nDataAcquisitionWorkerService_3F420F60["Service: DataAcquisitionWorkerService"] -->|produces| nPatientListsAcquired_7817175F
+  nPatientListsAcquired_7817175F -->|consumed by| nCensusService_7D0BBF5C["Service: CensusService"]
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionWorkerService_3F420F60
+    nPatientListsAcquired_7817175F
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

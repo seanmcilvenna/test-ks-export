@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -295,34 +291,25 @@
 <h1>Tenant Service</h1>
 <div class="row">
     <div class="col-md-8">
-        <div class="mb-3"><strong>Produces:</strong> <a href="event-auditableeventoccurred.html">Auditable Event Occurred [event]</a>, <a href="event-reportscheduled.html">Report Scheduled [event]</a>, <a href="command-generatereportrequested.html">Generate Report Requested [command]</a>, <a href="query-getfacilitieslist.html">Get Facilities List [query]</a>, <a href="query-getfacilityconfig.html">Get Facility Configuration [query]</a>, <a href="query-getserviceinfo.html">Get Service Info [query]</a></div><div class="mb-3"><strong>Consumes:</strong> <a href="query-getfacilitieslist.html">Get Facilities List [query]</a>, <a href="query-getfacilityconfig.html">Get Facility Configuration [query]</a>, <a href="query-getserviceinfo.html">Get Service Info [query]</a></div>
+        <div class="mb-3"><strong>Produces:</strong> <a href="event-auditableeventoccurred.html">Auditable Event Occurred [event]</a>, <a href="event-reportscheduled.html">Report Scheduled [event]</a>, <a href="command-generatereportrequested.html">Generate Report Requested [command]</a></div><div class="mb-3"><strong>Consumes:</strong> None</div>
         <h2 id="overview">Overview <a id="overview" href="#overview" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Overview"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
 <p>The Tenant service is the entry point for configuring a tenant into Link Cloud. The service is responsible for maintaining and generating events for the scheduled measure reporting periods that the tenant is configured for. These events contain the initial information needed for Link Cloud to query resources and perform measure evaluations based on a specific reporting period.</p>
 <p>The Tenant service uses Quartz with ADO Job Stores to manage jobs across multiple instances of the service, primarily for producing ReportScheduled Kafka events.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nTenantService_37499504["Service: Tenant Service"]
-  nTenantService_37499504 -->|produces| nAuditableEventOccurred_7A87F7C4["Event: AuditableEventOccurred"]
-  nTenantService_37499504 -->|produces| nReportScheduled_7DED9C74["Event: ReportScheduled"]
-  nTenantService_37499504 -->|sends| nGenerateReportRequested_5226C349["Command: GenerateReportRequested"]
-  nTenantService_37499504 -->|provides| nGetFacilitiesList_7C0DD34["Query: GetFacilitiesList"]
-  nTenantService_37499504 -->|provides| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nTenantService_37499504 -->|provides| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  nTenantService_37499504 -->|requests| nGetFacilitiesList_7C0DD34["Query: GetFacilitiesList"]
-  nTenantService_37499504 -->|requests| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nTenantService_37499504 -->|requests| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nAuditableEventOccurred_7A87F7C4
+nTenantService_71CB5BEF["Service: Tenant Service"]
+  nTenantService_71CB5BEF -->|produces| nAuditableEventOccurred_1D826F05["Event: AuditableEventOccurred"]
+  nTenantService_71CB5BEF -->|produces| nReportScheduled_384482CF["Event: ReportScheduled"]
+  nTenantService_71CB5BEF -->|sends| nGenerateReportRequested_6E25E495["Command: GenerateReportRequested"]
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nAuditableEventOccurred_1D826F05
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nGenerateReportRequested_5226C349
-    nReportScheduled_7DED9C74
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nGenerateReportRequested_6E25E495
+    nReportScheduled_384482CF
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nGetFacilitiesList_7C0DD34
-    nGetFacilityConfig_28F478AA
-    nGetServiceInfo_8DEDA30
-    nTenantService_37499504
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nTenantService_71CB5BEF
   end
 </pre></div>
 <h2 id="common-configurations">Common Configurations <a id="common-configurations" href="#common-configurations" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Common Configurations"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -656,28 +643,19 @@ found in the JWKS endpoint exposed by Link.</p>
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nTenantService_37499504["Service: Tenant Service"]
-  nTenantService_37499504 -->|produces| nAuditableEventOccurred_7A87F7C4["Event: AuditableEventOccurred"]
-  nTenantService_37499504 -->|produces| nReportScheduled_7DED9C74["Event: ReportScheduled"]
-  nTenantService_37499504 -->|sends| nGenerateReportRequested_5226C349["Command: GenerateReportRequested"]
-  nTenantService_37499504 -->|provides| nGetFacilitiesList_7C0DD34["Query: GetFacilitiesList"]
-  nTenantService_37499504 -->|provides| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nTenantService_37499504 -->|provides| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  nTenantService_37499504 -->|requests| nGetFacilitiesList_7C0DD34["Query: GetFacilitiesList"]
-  nTenantService_37499504 -->|requests| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nTenantService_37499504 -->|requests| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nAuditableEventOccurred_7A87F7C4
+nTenantService_71CB5BEF["Service: Tenant Service"]
+  nTenantService_71CB5BEF -->|produces| nAuditableEventOccurred_1D826F05["Event: AuditableEventOccurred"]
+  nTenantService_71CB5BEF -->|produces| nReportScheduled_384482CF["Event: ReportScheduled"]
+  nTenantService_71CB5BEF -->|sends| nGenerateReportRequested_6E25E495["Command: GenerateReportRequested"]
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nAuditableEventOccurred_1D826F05
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nGenerateReportRequested_5226C349
-    nReportScheduled_7DED9C74
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nGenerateReportRequested_6E25E495
+    nReportScheduled_384482CF
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nGetFacilitiesList_7C0DD34
-    nGetFacilityConfig_28F478AA
-    nGetServiceInfo_8DEDA30
-    nTenantService_37499504
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nTenantService_71CB5BEF
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

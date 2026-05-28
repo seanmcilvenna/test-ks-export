@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -301,13 +297,13 @@
 The Data Acquisition Service sends the event to the “ReadyToAcquire” Kafka topic with the log ID as the key.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nReadyToAcquire_575D6796["Event: Ready to Acquire"]
-  nDataAcquisitionWorkerService_6A343342["Service: DataAcquisitionWorkerService"] -->|produces| nReadyToAcquire_575D6796
-  nReadyToAcquire_575D6796 -->|consumed by| nDataAcquisitionService_5BA40769["Service: DataAcquisitionService"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionService_5BA40769
-    nDataAcquisitionWorkerService_6A343342
-    nReadyToAcquire_575D6796
+nReadyToAcquire_61D741E8["Event: Ready to Acquire"]
+  nDataAcquisitionWorkerService_3F420F60["Service: DataAcquisitionWorkerService"] -->|produces| nReadyToAcquire_61D741E8
+  nReadyToAcquire_61D741E8 -->|consumed by| nDataAcquisitionService_2A5BCF5["Service: DataAcquisitionService"]
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionService_2A5BCF5
+    nDataAcquisitionWorkerService_3F420F60
+    nReadyToAcquire_61D741E8
   end
 </pre></div>
 
@@ -317,13 +313,13 @@ nReadyToAcquire_575D6796["Event: Ready to Acquire"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nReadyToAcquire_575D6796["Event: Ready to Acquire"]
-  nDataAcquisitionWorkerService_6A343342["Service: DataAcquisitionWorkerService"] -->|produces| nReadyToAcquire_575D6796
-  nReadyToAcquire_575D6796 -->|consumed by| nDataAcquisitionService_5BA40769["Service: DataAcquisitionService"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionService_5BA40769
-    nDataAcquisitionWorkerService_6A343342
-    nReadyToAcquire_575D6796
+nReadyToAcquire_61D741E8["Event: Ready to Acquire"]
+  nDataAcquisitionWorkerService_3F420F60["Service: DataAcquisitionWorkerService"] -->|produces| nReadyToAcquire_61D741E8
+  nReadyToAcquire_61D741E8 -->|consumed by| nDataAcquisitionService_2A5BCF5["Service: DataAcquisitionService"]
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionService_2A5BCF5
+    nDataAcquisitionWorkerService_3F420F60
+    nReadyToAcquire_61D741E8
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

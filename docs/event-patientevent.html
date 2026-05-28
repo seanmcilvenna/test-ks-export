@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -300,15 +296,15 @@
 <p>Marks a change in patient status so other components know when to start their waiting period before requesting data.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nPatientEvent_2C182EC2["Event: Patient Event"]
-  nCensusService_2CC76C86["Service: CensusService"] -->|produces| nPatientEvent_2C182EC2
-  nPatientEvent_2C182EC2 -->|consumed by| nReportService_583D726D["Service: ReportService"]
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPatientEvent_2C182EC2
-    nReportService_583D726D
+nPatientEvent_4E95B5CE["Event: Patient Event"]
+  nCensusService_7D0BBF5C["Service: CensusService"] -->|produces| nPatientEvent_4E95B5CE
+  nPatientEvent_4E95B5CE -->|consumed by| nReportService_4649200A["Service: ReportService"]
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPatientEvent_4E95B5CE
+    nReportService_4649200A
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
   end
 </pre></div>
 <h2 id="event-schema">Event Schema <a id="event-schema" href="#event-schema" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Event Schema"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -338,15 +334,15 @@ nPatientEvent_2C182EC2["Event: Patient Event"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nPatientEvent_2C182EC2["Event: Patient Event"]
-  nCensusService_2CC76C86["Service: CensusService"] -->|produces| nPatientEvent_2C182EC2
-  nPatientEvent_2C182EC2 -->|consumed by| nReportService_583D726D["Service: ReportService"]
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPatientEvent_2C182EC2
-    nReportService_583D726D
+nPatientEvent_4E95B5CE["Event: Patient Event"]
+  nCensusService_7D0BBF5C["Service: CensusService"] -->|produces| nPatientEvent_4E95B5CE
+  nPatientEvent_4E95B5CE -->|consumed by| nReportService_4649200A["Service: ReportService"]
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPatientEvent_4E95B5CE
+    nReportService_4649200A
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

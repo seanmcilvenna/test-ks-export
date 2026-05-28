@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -301,13 +297,13 @@
 process the data.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nEvaluationRequested_5CA62F9["Command: Evaluation Requested"]
-  nReportService_583D726D["Service: ReportService"] -->|sends| nEvaluationRequested_5CA62F9
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nEvaluationRequested_5CA62F9
+nEvaluationRequested_354C3900["Command: Evaluation Requested"]
+  nReportService_4649200A["Service: ReportService"] -->|sends| nEvaluationRequested_354C3900
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nEvaluationRequested_354C3900
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nReportService_583D726D
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nReportService_4649200A
   end
 </pre></div>
 
@@ -317,13 +313,13 @@ nEvaluationRequested_5CA62F9["Command: Evaluation Requested"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nEvaluationRequested_5CA62F9["Command: Evaluation Requested"]
-  nReportService_583D726D["Service: ReportService"] -->|sends| nEvaluationRequested_5CA62F9
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nEvaluationRequested_5CA62F9
+nEvaluationRequested_354C3900["Command: Evaluation Requested"]
+  nReportService_4649200A["Service: ReportService"] -->|sends| nEvaluationRequested_354C3900
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nEvaluationRequested_354C3900
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nReportService_583D726D
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nReportService_4649200A
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

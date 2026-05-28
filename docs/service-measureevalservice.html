@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -300,19 +296,19 @@
 <p>The Measure Eval service is a Java based application that is primarily responsible for evaluating bundles of acquired patient resources against the measures that Link Cloud tenants are configured to evaluate with. The service utilizes the CQF framework to perform the measure evaluations.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nMeasureEvalService_3FBA85C9["Service: Measure Evaluation Service"]
-  nMeasureEvalService_3FBA85C9 -->|produces| nMeasureReportGenerated_6CF6D91F["Event: MeasureReportGenerated"]
-  nResourceNormalized_3195270E["Event: ResourceNormalized"] -->|consumed by| nMeasureEvalService_3FBA85C9
-  nMeasureEvalService_3FBA85C9 -->|sends| nDataAcquisitionRequested_20B5963B["Command: DataAcquisitionRequested"]
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nMeasureReportGenerated_6CF6D91F
-    nResourceNormalized_3195270E
+nMeasureEvalService_4FCEE612["Service: Measure Evaluation Service"]
+  nMeasureEvalService_4FCEE612 -->|produces| nMeasureReportGenerated_612A7F07["Event: MeasureReportGenerated"]
+  nResourceNormalized_4751F55F["Event: ResourceNormalized"] -->|consumed by| nMeasureEvalService_4FCEE612
+  nMeasureEvalService_4FCEE612 -->|sends| nDataAcquisitionRequested_21132563["Command: DataAcquisitionRequested"]
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nMeasureReportGenerated_612A7F07
+    nResourceNormalized_4751F55F
   end
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionRequested_20B5963B
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionRequested_21132563
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nMeasureEvalService_3FBA85C9
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nMeasureEvalService_4FCEE612
   end
 </pre></div>
 <h2 id="common-configurations">Common Configurations <a id="common-configurations" href="#common-configurations" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Common Configurations"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -636,19 +632,19 @@ nMeasureEvalService_3FBA85C9["Service: Measure Evaluation Service"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nMeasureEvalService_3FBA85C9["Service: Measure Evaluation Service"]
-  nMeasureEvalService_3FBA85C9 -->|produces| nMeasureReportGenerated_6CF6D91F["Event: MeasureReportGenerated"]
-  nResourceNormalized_3195270E["Event: ResourceNormalized"] -->|consumed by| nMeasureEvalService_3FBA85C9
-  nMeasureEvalService_3FBA85C9 -->|sends| nDataAcquisitionRequested_20B5963B["Command: DataAcquisitionRequested"]
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nMeasureReportGenerated_6CF6D91F
-    nResourceNormalized_3195270E
+nMeasureEvalService_4FCEE612["Service: Measure Evaluation Service"]
+  nMeasureEvalService_4FCEE612 -->|produces| nMeasureReportGenerated_612A7F07["Event: MeasureReportGenerated"]
+  nResourceNormalized_4751F55F["Event: ResourceNormalized"] -->|consumed by| nMeasureEvalService_4FCEE612
+  nMeasureEvalService_4FCEE612 -->|sends| nDataAcquisitionRequested_21132563["Command: DataAcquisitionRequested"]
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nMeasureReportGenerated_612A7F07
+    nResourceNormalized_4751F55F
   end
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionRequested_20B5963B
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionRequested_21132563
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nMeasureEvalService_3FBA85C9
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nMeasureEvalService_4FCEE612
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

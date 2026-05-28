@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -301,17 +297,17 @@
 to date.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nPatientCensusScheduled_200AD80E["Event: Patient Census Scheduled"]
-  nCensusService_2CC76C86["Service: CensusService"] -->|produces| nPatientCensusScheduled_200AD80E
-  nPatientCensusScheduled_200AD80E -->|consumed by| nDataAcquisitionService_5BA40769["Service: DataAcquisitionService"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionService_5BA40769
+nPatientCensusScheduled_7C5CE2E6["Event: Patient Census Scheduled"]
+  nCensusService_7D0BBF5C["Service: CensusService"] -->|produces| nPatientCensusScheduled_7C5CE2E6
+  nPatientCensusScheduled_7C5CE2E6 -->|consumed by| nDataAcquisitionService_2A5BCF5["Service: DataAcquisitionService"]
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionService_2A5BCF5
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPatientCensusScheduled_200AD80E
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPatientCensusScheduled_7C5CE2E6
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
   end
 </pre></div>
 
@@ -321,17 +317,17 @@ nPatientCensusScheduled_200AD80E["Event: Patient Census Scheduled"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nPatientCensusScheduled_200AD80E["Event: Patient Census Scheduled"]
-  nCensusService_2CC76C86["Service: CensusService"] -->|produces| nPatientCensusScheduled_200AD80E
-  nPatientCensusScheduled_200AD80E -->|consumed by| nDataAcquisitionService_5BA40769["Service: DataAcquisitionService"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionService_5BA40769
+nPatientCensusScheduled_7C5CE2E6["Event: Patient Census Scheduled"]
+  nCensusService_7D0BBF5C["Service: CensusService"] -->|produces| nPatientCensusScheduled_7C5CE2E6
+  nPatientCensusScheduled_7C5CE2E6 -->|consumed by| nDataAcquisitionService_2A5BCF5["Service: DataAcquisitionService"]
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionService_2A5BCF5
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPatientCensusScheduled_200AD80E
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPatientCensusScheduled_7C5CE2E6
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

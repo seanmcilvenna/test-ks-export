@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -295,29 +291,23 @@
 <h1>Data Acquisition Service</h1>
 <div class="row">
     <div class="col-md-8">
-        <div class="mb-3"><strong>Produces:</strong> <a href="event-resourceacquired.html">Resource Acquired [event]</a>, <a href="query-getfacilityconfig.html">Get Facility Configuration [query]</a>, <a href="query-getserviceinfo.html">Get Service Info [query]</a></div><div class="mb-3"><strong>Consumes:</strong> <a href="event-readytoacquire.html">Ready to Acquire [event]</a>, <a href="event-patientcensusscheduled.html">Patient Census Scheduled [event]</a></div>
+        <div class="mb-3"><strong>Produces:</strong> <a href="event-resourceacquired.html">Resource Acquired [event]</a></div><div class="mb-3"><strong>Consumes:</strong> <a href="event-readytoacquire.html">Ready to Acquire [event]</a>, <a href="event-patientcensusscheduled.html">Patient Census Scheduled [event]</a></div>
         <h2 id="overview">Overview <a id="overview" href="#overview" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Overview"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
 <p>The Data Acquisition service is responsible for connecting and querying a tenant's endpoint for FHIR resources that are needed to evaluate patients for a measure. For Epic installations, Link Cloud is utilizing the Epic FHIR STU3 Patient List resource to inform which patients are currently admitted in the facility. While this is the current solution to acquiring the patient census, there are other means of patient acquisition being investigated (ADT V2, Bulk FHIR) to provide universal support across multiple EHR vendors.</p>
 <p>In addition to FHIR endpoints, the service supports <strong>SFTP-based acquisition</strong> for tenants that drop extract files (e.g., Cerner CCL pipe-delimited extracts) onto a remote SFTP server rather than exposing a queryable FHIR API. See <a href="#sftp-data-acquisition">SFTP Data Acquisition</a> below.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nDataAcquisitionService_5BA40769["Service: Data Acquisition Service"]
-  nDataAcquisitionService_5BA40769 -->|produces| nResourceAcquired_236AEE5["Event: ResourceAcquired"]
-  nReadyToAcquire_575D6796["Event: ReadyToAcquire"] -->|consumed by| nDataAcquisitionService_5BA40769
-  nPatientCensusScheduled_200AD80E["Event: PatientCensusScheduled"] -->|consumed by| nDataAcquisitionService_5BA40769
-  nDataAcquisitionService_5BA40769 -->|provides| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nDataAcquisitionService_5BA40769 -->|provides| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionService_5BA40769
-    nReadyToAcquire_575D6796
-    nResourceAcquired_236AEE5
+nDataAcquisitionService_2A5BCF5["Service: Data Acquisition Service"]
+  nDataAcquisitionService_2A5BCF5 -->|produces| nResourceAcquired_414520C8["Event: ResourceAcquired"]
+  nReadyToAcquire_61D741E8["Event: ReadyToAcquire"] -->|consumed by| nDataAcquisitionService_2A5BCF5
+  nPatientCensusScheduled_7C5CE2E6["Event: PatientCensusScheduled"] -->|consumed by| nDataAcquisitionService_2A5BCF5
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionService_2A5BCF5
+    nReadyToAcquire_61D741E8
+    nResourceAcquired_414520C8
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPatientCensusScheduled_200AD80E
-  end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nGetFacilityConfig_28F478AA
-    nGetServiceInfo_8DEDA30
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPatientCensusScheduled_7C5CE2E6
   end
 </pre></div>
 <h2 id="common-configurations">Common Configurations <a id="common-configurations" href="#common-configurations" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Common Configurations"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -2421,23 +2411,17 @@ Only logs in ConfigurationRequired or MaxRetriesReached status can be reset.</p>
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nDataAcquisitionService_5BA40769["Service: Data Acquisition Service"]
-  nDataAcquisitionService_5BA40769 -->|produces| nResourceAcquired_236AEE5["Event: ResourceAcquired"]
-  nReadyToAcquire_575D6796["Event: ReadyToAcquire"] -->|consumed by| nDataAcquisitionService_5BA40769
-  nPatientCensusScheduled_200AD80E["Event: PatientCensusScheduled"] -->|consumed by| nDataAcquisitionService_5BA40769
-  nDataAcquisitionService_5BA40769 -->|provides| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nDataAcquisitionService_5BA40769 -->|provides| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  subgraph nDataAccess_61DB65EA_domain["Domain: Data Access"]
-    nDataAcquisitionService_5BA40769
-    nReadyToAcquire_575D6796
-    nResourceAcquired_236AEE5
+nDataAcquisitionService_2A5BCF5["Service: Data Acquisition Service"]
+  nDataAcquisitionService_2A5BCF5 -->|produces| nResourceAcquired_414520C8["Event: ResourceAcquired"]
+  nReadyToAcquire_61D741E8["Event: ReadyToAcquire"] -->|consumed by| nDataAcquisitionService_2A5BCF5
+  nPatientCensusScheduled_7C5CE2E6["Event: PatientCensusScheduled"] -->|consumed by| nDataAcquisitionService_2A5BCF5
+  subgraph nDataAccess_70DF92F2_domain["Domain: Data Access"]
+    nDataAcquisitionService_2A5BCF5
+    nReadyToAcquire_61D741E8
+    nResourceAcquired_414520C8
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPatientCensusScheduled_200AD80E
-  end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nGetFacilityConfig_28F478AA
-    nGetServiceInfo_8DEDA30
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPatientCensusScheduled_7C5CE2E6
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

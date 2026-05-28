@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -300,27 +296,28 @@
 <p>Emitted whenever important user or system activity happens so the audit service can maintain a comprehensive log.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nAuditableEventOccurred_7A87F7C4["Event: Auditable Event Occurred"]
-  nAccountService_76DAA3BF["Service: AccountService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nCensusService_2CC76C86["Service: CensusService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nQueryDispatchService_267350C4["Service: QueryDispatchService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nReportService_583D726D["Service: ReportService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nTenantService_37499504["Service: TenantService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nAuditableEventOccurred_7A87F7C4 -->|consumed by| nAuditService_7D224EBE["Service: AuditService"]
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nAccountService_76DAA3BF
-    nAuditService_7D224EBE
-    nAuditableEventOccurred_7A87F7C4
+nAuditableEventOccurred_1D826F05["Event: Auditable Event Occurred"]
+  nAccountService_61A99F6B["Service: AccountService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nCensusService_7D0BBF5C["Service: CensusService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nQueryDispatchService_84CDFFF["Service: QueryDispatchService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nReportService_4649200A["Service: ReportService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nTenantService_71CB5BEF["Service: TenantService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nAuditableEventOccurred_1D826F05 -->|consumed by| nAuditService_43D2F16A["Service: AuditService"]
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nAccountService_61A99F6B
+    nAuditService_43D2F16A
+    nAuditableEventOccurred_1D826F05
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nQueryDispatchService_267350C4
-    nReportService_583D726D
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nQueryDispatchService_84CDFFF
+    nReportService_4649200A
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
-    nTenantService_37499504
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
+    nTenantService_71CB5BEF
   end
 </pre></div>
+<p>Test!</p>
 
         
     </div>
@@ -328,25 +325,25 @@ nAuditableEventOccurred_7A87F7C4["Event: Auditable Event Occurred"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nAuditableEventOccurred_7A87F7C4["Event: Auditable Event Occurred"]
-  nAccountService_76DAA3BF["Service: AccountService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nCensusService_2CC76C86["Service: CensusService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nQueryDispatchService_267350C4["Service: QueryDispatchService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nReportService_583D726D["Service: ReportService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nTenantService_37499504["Service: TenantService"] -->|produces| nAuditableEventOccurred_7A87F7C4
-  nAuditableEventOccurred_7A87F7C4 -->|consumed by| nAuditService_7D224EBE["Service: AuditService"]
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nAccountService_76DAA3BF
-    nAuditService_7D224EBE
-    nAuditableEventOccurred_7A87F7C4
+nAuditableEventOccurred_1D826F05["Event: Auditable Event Occurred"]
+  nAccountService_61A99F6B["Service: AccountService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nCensusService_7D0BBF5C["Service: CensusService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nQueryDispatchService_84CDFFF["Service: QueryDispatchService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nReportService_4649200A["Service: ReportService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nTenantService_71CB5BEF["Service: TenantService"] -->|produces| nAuditableEventOccurred_1D826F05
+  nAuditableEventOccurred_1D826F05 -->|consumed by| nAuditService_43D2F16A["Service: AuditService"]
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nAccountService_61A99F6B
+    nAuditService_43D2F16A
+    nAuditableEventOccurred_1D826F05
   end
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nQueryDispatchService_267350C4
-    nReportService_583D726D
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nQueryDispatchService_84CDFFF
+    nReportService_4649200A
   end
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nCensusService_2CC76C86
-    nTenantService_37499504
+  subgraph nTenant_29018E1C_domain["Domain: Tenant"]
+    nCensusService_7D0BBF5C
+    nTenantService_71CB5BEF
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

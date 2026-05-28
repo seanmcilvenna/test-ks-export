@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -301,11 +297,11 @@
 <p>The service provides REST endpoints for managing and retrieving audit logs. These endpoints allow for the creation, retrieval, and deletion of audit records, facilitating comprehensive tracking of system activities.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nAuditService_7D224EBE["Service: Audit Service"]
-  nAuditableEventOccurred_7A87F7C4["Event: AuditableEventOccurred"] -->|consumed by| nAuditService_7D224EBE
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nAuditService_7D224EBE
-    nAuditableEventOccurred_7A87F7C4
+nAuditService_43D2F16A["Service: Audit Service"]
+  nAuditableEventOccurred_1D826F05["Event: AuditableEventOccurred"] -->|consumed by| nAuditService_43D2F16A
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nAuditService_43D2F16A
+    nAuditableEventOccurred_1D826F05
   end
 </pre></div>
 <h2 id="common-configurations">Common Configurations <a id="common-configurations" href="#common-configurations" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Common Configurations"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -447,11 +443,11 @@ nAuditService_7D224EBE["Service: Audit Service"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nAuditService_7D224EBE["Service: Audit Service"]
-  nAuditableEventOccurred_7A87F7C4["Event: AuditableEventOccurred"] -->|consumed by| nAuditService_7D224EBE
-  subgraph nCompliance_57F8F1BA_domain["Domain: Compliance"]
-    nAuditService_7D224EBE
-    nAuditableEventOccurred_7A87F7C4
+nAuditService_43D2F16A["Service: Audit Service"]
+  nAuditableEventOccurred_1D826F05["Event: AuditableEventOccurred"] -->|consumed by| nAuditService_43D2F16A
+  subgraph nCompliance_5EE8A8BA_domain["Domain: Compliance"]
+    nAuditService_43D2F16A
+    nAuditableEventOccurred_1D826F05
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

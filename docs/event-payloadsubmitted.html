@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -300,13 +296,13 @@
 <p>Acknowledges successful creation of a patient bundle or manifest so reporting workflows can update their status.</p>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart LR
-nPayloadSubmitted_6FE35A21["Event: Payload Submitted"]
-  nSubmissionService_643C784D["Service: SubmissionService"] -->|produces| nPayloadSubmitted_6FE35A21
-  nPayloadSubmitted_6FE35A21 -->|consumed by| nReportService_583D726D["Service: ReportService"]
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPayloadSubmitted_6FE35A21
-    nReportService_583D726D
-    nSubmissionService_643C784D
+nPayloadSubmitted_21B7F6DB["Event: Payload Submitted"]
+  nSubmissionService_1A05656C["Service: SubmissionService"] -->|produces| nPayloadSubmitted_21B7F6DB
+  nPayloadSubmitted_21B7F6DB -->|consumed by| nReportService_4649200A["Service: ReportService"]
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPayloadSubmitted_21B7F6DB
+    nReportService_4649200A
+    nSubmissionService_1A05656C
   end
 </pre></div>
 <h2 id="event-schema">Event Schema <a id="event-schema" href="#event-schema" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Event Schema"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
@@ -341,13 +337,13 @@ nPayloadSubmitted_6FE35A21["Event: Payload Submitted"]
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nPayloadSubmitted_6FE35A21["Event: Payload Submitted"]
-  nSubmissionService_643C784D["Service: SubmissionService"] -->|produces| nPayloadSubmitted_6FE35A21
-  nPayloadSubmitted_6FE35A21 -->|consumed by| nReportService_583D726D["Service: ReportService"]
-  subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nPayloadSubmitted_6FE35A21
-    nReportService_583D726D
-    nSubmissionService_643C784D
+nPayloadSubmitted_21B7F6DB["Event: Payload Submitted"]
+  nSubmissionService_1A05656C["Service: SubmissionService"] -->|produces| nPayloadSubmitted_21B7F6DB
+  nPayloadSubmitted_21B7F6DB -->|consumed by| nReportService_4649200A["Service: ReportService"]
+  subgraph nReport_50829A53_domain["Domain: Report"]
+    nPayloadSubmitted_21B7F6DB
+    nReportService_4649200A
+    nSubmissionService_1A05656C
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">

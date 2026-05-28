@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -295,7 +291,7 @@
 <h1>Admin Backend-for-Frontend</h1>
 <div class="row">
     <div class="col-md-8">
-        <div class="mb-3"><strong>Produces:</strong> <a href="query-getfacilitieslist.html">Get Facilities List [query]</a>, <a href="query-getfacilityconfig.html">Get Facility Configuration [query]</a>, <a href="query-getserviceinfo.html">Get Service Info [query]</a></div><div class="mb-3"><strong>Consumes:</strong> None</div>
+        <div class="mb-3"><strong>Produces:</strong> None</div><div class="mb-3"><strong>Consumes:</strong> None</div>
         <h2 id="overview">Overview <a id="overview" href="#overview" class="markdown-heading-anchor text-decoration-none" aria-label="Link to section: Overview"><i class="bi bi-link-45deg" style="opacity: 0.2; font-size: 20px;"></i></a></h2>
 <p>The AdminBFF (Backend-for-Frontend) service is the administrative gateway that bridges the Angular-based front-end application with the internal service ecosystem. It serves as the single public-facing backend entry point for all administrative operations, providing a tightly controlled interface that enforces security, authorization, and request routing policies.</p>
 <ul>
@@ -442,15 +438,7 @@
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-nAdminBFF_114E1023["Service: Admin Backend-for-Frontend"]
-  nAdminBFF_114E1023 -->|provides| nGetFacilitiesList_7C0DD34["Query: GetFacilitiesList"]
-  nAdminBFF_114E1023 -->|provides| nGetFacilityConfig_28F478AA["Query: GetFacilityConfig"]
-  nAdminBFF_114E1023 -->|provides| nGetServiceInfo_8DEDA30["Query: GetServiceInfo"]
-  subgraph nTenant_1AC5047D_domain["Domain: Tenant"]
-    nGetFacilitiesList_7C0DD34
-    nGetFacilityConfig_28F478AA
-    nGetServiceInfo_8DEDA30
-  end</pre>
+nAdminBFF_564A3714["Service: Admin Backend-for-Frontend"]</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">
                     <i class="bi bi-clipboard"></i>

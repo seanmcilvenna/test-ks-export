@@ -173,10 +173,6 @@
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-generatereportrequested.html">Generate Report Requested</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatecodesystemcode.html">Validate CodeSystem Code</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="command-validatevaluesetcode.html">Validate ValueSet Code</a></li>
-  <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="queries.html">Queries</a></strong></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilitieslist.html">Get Facilities List</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getfacilityconfig.html">Get Facility Configuration</a></li>
-  <li class="nav-item"><a class="nav-link py-1 ms-2" href="query-getserviceinfo.html">Get Service Info</a></li>
   <li class="nav-item mt-2"><strong><a class="nav-link p-0" href="services.html">Services</a></strong></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-accountservice.html">Account Service</a></li>
   <li class="nav-item"><a class="nav-link py-1 ms-2" href="service-adminbff.html">Admin Backend-for-Frontend</a></li>
@@ -378,18 +374,18 @@ Initial --> ReportScheduled : Report Scheduled
         <h3>Relationships</h3>
         <div class="mermaid-container">
             <pre class="mermaid">flowchart LR
-subgraph nReport_51B3BF37_domain["Domain: Report"]
-    nMeasureEvalService_3FBA85C9["Service: Measure Evaluation Service"]
-    nNormalizationService_2E95CB22["Service: Normalization Service"]
-    nQueryDispatchService_267350C4["Service: Query Dispatch Service"]
-    nReportService_583D726D["Service: Report Service"]
-    nSubmissionService_643C784D["Service: Submission Service"]
-    nPatientCensusScheduled_200AD80E["Event: Patient Census Scheduled"]
-    nPatientEvent_2C182EC2["Event: Patient Event"]
-    nReportScheduled_7DED9C74["Event: Report Scheduled"]
-    nSubmitPayload_2C13BB45["Event: Submit Payload"]
-    nPayloadSubmitted_6FE35A21["Event: Payload Submitted"]
-    nGenerateReportRequested_5226C349["Command: Generate Report Requested"]
+subgraph nReport_50829A53_domain["Domain: Report"]
+    nMeasureEvalService_4FCEE612["Service: Measure Evaluation Service"]
+    nNormalizationService_78A4F4B8["Service: Normalization Service"]
+    nQueryDispatchService_84CDFFF["Service: Query Dispatch Service"]
+    nReportService_4649200A["Service: Report Service"]
+    nSubmissionService_1A05656C["Service: Submission Service"]
+    nPatientCensusScheduled_7C5CE2E6["Event: Patient Census Scheduled"]
+    nPatientEvent_4E95B5CE["Event: Patient Event"]
+    nReportScheduled_384482CF["Event: Report Scheduled"]
+    nSubmitPayload_695A76CB["Event: Submit Payload"]
+    nPayloadSubmitted_21B7F6DB["Event: Payload Submitted"]
+    nGenerateReportRequested_6E25E495["Command: Generate Report Requested"]
   end</pre>
             <div class="mermaid-actions no-print">
                 <button class="btn btn-sm btn-light" title="Copy Mermaid Source" onclick="copyMermaidSource(this)">
